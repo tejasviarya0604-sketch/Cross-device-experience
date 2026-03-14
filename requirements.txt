@@ -1,0 +1,11 @@
+Flask>=3.0.0
+Pillow>=10.0.0
+pillow-heif>=0.18.0
+pyperclip>=1.8.2
+watchdog>=4.0.0
+windows-toasts>=1.3.1
+winrt-Windows.Foundation>=2.3.0
+winrt-Windows.Media.Ocr>=2.3.0
+winrt-Windows.Graphics.Imaging>=2.3.0
+winrt-Windows.Storage.Streams>=2.3.0
+winrt-Windows.Globalization>=2.3.0
