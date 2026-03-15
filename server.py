@@ -159,7 +159,13 @@ async def _ocr_async(png_path_str: str) -> str:
             return ""
 
         result = await engine.recognize_async(bitmap)
-        lines = [line.text for line in result.lines]
+        lines = []
+        for line in result.lines:
+            t = line.text.strip()
+            # Skip edge artifacts: very short lines or lines with few real letters
+            alpha = sum(c.isalpha() for c in t)
+            if len(t) >= 4 and alpha >= 3:
+                lines.append(t)
         return "\n".join(lines).strip()
     except Exception:
         log.exception("OCR failed for %s", png_path_str)
